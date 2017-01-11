@@ -215,6 +215,17 @@ $(document).ready(function() {
 			if (init_data.caption_url) {
 				if (init_data.caption_lang) {
 					subs = [ ];
+						var ce = Object.keys(init_data.caption_lang[0])[0];
+						var la = init_data.caption_lang[0][ce];
+						if (la != "English"){
+							subs.push({
+							kind: "subtitles",
+							"default": true,
+							srclang: "English",
+							label: "English",
+							src: init_data.caption_url,
+						});	
+						}
 					for (var i = 0; i < init_data.caption_lang.length; i++) {
 						var code = Object.keys(init_data.caption_lang[i])[0];
 						var label = init_data.caption_lang[i][code];
